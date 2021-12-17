@@ -1,0 +1,18 @@
+# trick to make copy/pasting easier
+alias '$'=''
+
+# simple
+alias c='clear'
+
+# to help with git
+alias g=git
+alias gfa="g fetch --all -p"
+
+# bitwarden
+alias bwu='bitwarden_unlock'
+alias bwc='bitwarden_get_password'
+
+# kubernetes
+alias k=kubectl
+alias ke=kubectl-exec
+alias ks=kube-switch

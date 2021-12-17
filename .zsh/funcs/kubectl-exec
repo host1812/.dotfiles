@@ -1,0 +1,11 @@
+# Find host children of a given item
+kubectl-exec()
+{
+    pod=$1
+    if [ "$2" = "" ]; then
+        command="/bin/bash"
+    else
+        command=$2
+    fi
+    kubectl exec -it $pod -- $command
+}

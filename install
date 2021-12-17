@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "Creating symlinks..."
+if [ -d ~/.zsh ] || [ -f ~/.zshrc ] || [ -f ~/.zshenv ]; then
+    read -r -p "Another installation detected. Reinstall? [y|N] " response
+    if [[ $response =~ (yes|y|Y) ]]; then
+        ln -sivF ~/.dotfiles/.zsh ~
+        ln -siv ~/.dotfiles/.zshenv ~/.zshenv
+        ln -siv ~/.dotfiles/.zshrc ~/.zshrc
+        ln -siv ~/.dotfiles/.tmux.conf ~/.tmux.conf
+        ln -siv ~/.dotfiles/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+        ln -siv ~/.dotfiles/.config/starship.toml ~/.config/starship.toml
+    else
+        echo "Abording..."
+    fi
+fi

@@ -1,0 +1,11 @@
+# Unlocks Bitwarden and stores bw_session in a file
+bitwarden_unlock()
+{
+    bw unlock $BW_PASSWORD --raw > $HOME/.bw_session
+    if [[ $? -eq 1 ]]; then
+        echo "failed to unlock bitwarden"
+    else
+        echo "bitwarden unlocked successfully"
+        export BW_SESSION=$(cat $HOME/.bw_session)
+    fi
+}

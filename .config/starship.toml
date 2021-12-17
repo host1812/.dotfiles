@@ -1,0 +1,8 @@
+format = "${custom.time}$all"
+add_newline = false
+
+[custom.time]
+when = "true"
+command = "echo \"$(date +%T)|$(date -u +%T) \""
+format = '[\[$output\]]($style) '
+

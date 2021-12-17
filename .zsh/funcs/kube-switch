@@ -1,0 +1,7 @@
+# Find host children of a given item
+kube-switch()
+{
+    kcli init -c $1
+    kubectl config set-context --current --namespace=$2
+    echo "\n\nCurrent namespace: $(kubectl config view --minify --output 'jsonpath={..namespace}')"
+}
