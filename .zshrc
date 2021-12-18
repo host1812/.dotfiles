@@ -38,11 +38,11 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # enable zsh-autosuggestions (brew)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969,underline"
 
 # enable zsh-syntax-highlighting (brew)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # activate starship (brew)
 eval "$(starship init zsh)"
