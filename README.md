@@ -18,6 +18,11 @@ TBD
 
 ## Brew All
 
+```shell
+brew install starship
+brew install tmux
+```
+
 ### Zsh enhancements
 
 ```shell
