@@ -1,0 +1,2 @@
+ssh-proxy-on="cp ~/.ssh/config.proxy ~/.ssh/config.custom"
+ssh-proxy-off="cp ~/.ssh/config.direct ~/.ssh/config.custom"

@@ -3,6 +3,7 @@
 
 # aliases
 source ~/.zsh/aliases/base
+source ~/.zsh/aliases/linkedin
 
 # seach history with up/down keys
 autoload -U up-line-or-beginning-search
