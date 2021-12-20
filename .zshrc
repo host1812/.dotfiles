@@ -3,7 +3,11 @@
 
 # aliases
 source ~/.zsh/aliases/base
-source ~/.zsh/aliases/linkedin
+# load linkedin aliases only on linkedin laptop
+if type mint > /dev/null; then
+    source ~/.zsh/aliases/linkedin
+fi
+
 
 # seach history with up/down keys
 autoload -U up-line-or-beginning-search
