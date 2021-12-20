@@ -2,6 +2,7 @@ format = "${custom.time}$all"
 add_newline = false
 
 [custom.time]
+style = "yellow"
 when = "true"
 command = "echo \"$(date +%T)|$(date -u +%T) \""
 format = '[\[$output\]]($style) '
