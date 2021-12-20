@@ -39,11 +39,11 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # enable zsh-autosuggestions (brew)
-source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969,underline"
 
 # enable zsh-syntax-highlighting (brew)
-source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # not sure why, but I start in root, not home
 cd
