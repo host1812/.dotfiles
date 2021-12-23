@@ -70,7 +70,7 @@ $character"""
 add_newline = false
 
 [aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
+format = 'on [$symbol aws:($profile )(\($region\) )]($style)'
 symbol = "☁ "
 
 [custom.time]
