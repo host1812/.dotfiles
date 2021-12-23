@@ -1,3 +1,6 @@
 alias ssh-proxy-on="cp ~/.ssh/config.proxy ~/.ssh/config.custom"
 alias ssh-proxy-off="cp ~/.ssh/config.direct ~/.ssh/config.custom"
 alias notes="code ~/OneDrive\ -\ Microsoft/Notes"
+alias aws-glint-prod="export AWS_PROFILE=glint-prod && ln -s ~/.aws/config.deactivated ~/.aws/config"
+alias aws-glint-dev="export AWS_PROFILE=glint-dev && ln -s ~/.aws/config.deactivated ~/.aws/config"
+alias aws-glint-deactivate="unset AWS_PROFILE && rm ~/.aws/config"
