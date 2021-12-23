@@ -1,4 +1,72 @@
-format = "${custom.time}$all"
+format = """
+${custom.time}\
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+${custom.az_glint_profile}\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
 add_newline = false
 
 [aws]
@@ -10,3 +78,10 @@ style = "yellow"
 when = "true"
 command = "echo \"$(date +%T)|$(date -u +%T) \""
 format = '[\[$output\]]($style) '
+
+[custom.az_glint_profile]
+style = "bold yellow"
+symbol = "☁ "
+when = """ test "$AZ_GLINT_PROFILE" != "" """
+command = """echo "${AZ_GLINT_PROFILE}""""
+format = 'on [$symbol azure:($output )]($style)'
