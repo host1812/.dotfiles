@@ -8,6 +8,15 @@ if type mint > /dev/null; then
     source ~/.zsh/aliases/linkedin
 fi
 
+# history settings
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+# update history in real time
+setopt INC_APPEND_HISTORY
+# use extended history format
+setopt EXTENDED_HISTORY
+# ignore history duplicates when searching
+setopt HIST_FIND_NO_DUPS
 
 # seach history with up/down keys
 autoload -U up-line-or-beginning-search
