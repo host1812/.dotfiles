@@ -35,6 +35,12 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu yes select
 
+# enable az cli bash completions
+if [[ -f /opt/homebrew/etc/bash_completion.d/az ]]
+then
+    autoload -U +X bashcompinit && bashcompinit
+    source /opt/homebrew/etc/bash_completion.d/az
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
