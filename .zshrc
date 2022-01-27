@@ -1,5 +1,5 @@
 # start tmux as soon as possible
-[[ -z "$TMUX" ]] && exec `tmux attach || tmux`
+[[ -z "$TMUX" ]] && exec $(tmux attach || tmux)
 
 # brew location
 BREW_PREFIX=$(brew --prefix)
