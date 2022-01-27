@@ -1,6 +1,9 @@
 # start tmux as soon as possible
 [[ -z "$TMUX" ]] && exec `tmux attach || tmux`
 
+# brew location
+BREW_PREFIX=$(brew --prefix)
+
 # aliases
 source ~/.zsh/aliases/base
 # load linkedin aliases only on linkedin laptop
@@ -36,10 +39,10 @@ compinit
 zstyle ':completion:*' menu yes select
 
 # enable az cli bash completions
-if [[ -f /opt/homebrew/etc/bash_completion.d/az ]]
+if [[ -f ${BREW_PREFIX}/etc/bash_completion.d/az ]]
 then
     autoload -U +X bashcompinit && bashcompinit
-    source /opt/homebrew/etc/bash_completion.d/az
+    source ${BREW_PREFIX}/etc/bash_completion.d/az
 fi
 
 # >>> conda initialize >>>
@@ -58,11 +61,11 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # enable zsh-autosuggestions (brew)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969,underline"
 
 # enable zsh-syntax-highlighting (brew)
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # not sure why, but I start in root, not home
 cd
