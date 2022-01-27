@@ -5,10 +5,10 @@
 BREW_PREFIX=$(brew --prefix)
 
 # aliases
-source ~/.zsh/aliases/base
+source "${HOME}/.zsh/aliases/base"
 # load linkedin aliases only on linkedin laptop
 if type mint > /dev/null; then
-    source ~/.zsh/aliases/linkedin
+    source "${HOME}/.zsh/aliases/linkedin"
 fi
 
 # history settings
@@ -51,10 +51,10 @@ __conda_setup="$('/Users/${USER}/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/${USER}/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/${USER}/miniconda/etc/profile.d/conda.sh"
+    if [ -f "${HOME}/miniconda/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/${USER}/miniconda/bin:$PATH"
+        export PATH="${HOME}/miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
