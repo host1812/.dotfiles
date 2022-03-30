@@ -2,6 +2,7 @@
 [[ -z "$TMUX" ]] && exec $(tmux attach || tmux)
 
 # brew location
+
 BREW_PREFIX=$(brew --prefix)
 
 # aliases
@@ -12,8 +13,9 @@ if type mint > /dev/null; then
 fi
 
 # history settings
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000000
+HISTFILESIZE=100000
+HISTSIZE=100000
+SAVEHIST=100000
 # update history in real time
 setopt INC_APPEND_HISTORY
 # use extended history format
