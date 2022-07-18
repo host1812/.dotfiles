@@ -69,5 +69,8 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969,underline"
 # enable zsh-syntax-highlighting (brew)
 source "${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# kubernetes autocomplitionss
+source <(kubectl completion zsh)
+
 # activate starship (brew)
 eval "$(starship init zsh)"
