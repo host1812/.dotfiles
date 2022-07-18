@@ -10,6 +10,7 @@ source "${HOME}/.zsh/aliases/base"
 # load linkedin aliases only on linkedin laptop
 if type mint > /dev/null; then
     source "${HOME}/.zsh/aliases/linkedin"
+    source "${HOME}/.zsh/conf.d/linkedin"
 fi
 
 # history settings
