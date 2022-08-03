@@ -1,4 +1,6 @@
 # start tmux as soon as possible
+TERM=tmux-256color
+COLORTERM=truecolor
 [[ -z "$TMUX" ]] && exec $(tmux attach || tmux)
 
 # brew location
@@ -17,6 +19,7 @@ fi
 HISTFILESIZE=100000
 HISTSIZE=100000
 SAVEHIST=100000
+HISTFILE=~/.zsh_history
 # update history in real time
 setopt INC_APPEND_HISTORY
 # use extended history format
@@ -75,3 +78,4 @@ source <(kubectl completion zsh)
 
 # activate starship (brew)
 eval "$(starship init zsh)"
+
