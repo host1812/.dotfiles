@@ -1,0 +1,61 @@
+ansible_command() {
+    DEBUG=0
+    INVENTORY="sandbox-az"
+    LIMIT="realm_hosts"
+    COMMAND=""
+    X=""
+    optstring=":e:i:l:c:vx:"
+    while getopts ${optstring} arg; do
+        case "${arg}" in
+            v)
+                DEBUG=1
+                ;;
+            i)
+                INVENTORY="${OPTARG}"
+                ;;
+            l)
+                LIMIT="${OPTARG}"
+                ;;
+            c)
+                COMMAND="${OPTARG}"
+                ;;
+            e)
+                ENVIRONMENT="${OPTARG}"
+                ;;
+            x)
+                X="${OPTARG}"
+                ;;
+            ?)
+                echo "Invalid option: -${OPTARG}."
+                return
+            ;;
+        esac
+    done
+
+    if [[ $DEBUG -eq 1 ]]; then
+        echo "ENVIRONMENT=${ENVIRONMENT}"
+        echo "INVENTORY=${INVENTORY}"
+        echo "LIMIT=${LIMIT}"
+        echo "COMMAND=${COMMAND}"
+        echo "X=${X}"
+    fi
+
+    TMP_DIR=$(mktemp -d)
+    COMMAND_FILE=${TMP_DIR}/inventory.yml
+
+    echo "sudo su" > "$COMMAND_FILE"
+    echo "source /opt/stackstorm/virtualenvs/ansible/bin/activate" >> "$COMMAND_FILE"
+    echo "cd /opt/ansible-repo" >> "$COMMAND_FILE"
+    echo "ansible -u stanley ${LIMIT} -i ./inventory/${INVENTORY} -m ansible.builtin.shell -a '${COMMAND}' ${X}" >> "$COMMAND_FILE"
+
+    if [[ $DEBUG -eq 1 ]]; then
+        echo "START CONTENT OF COMMAND FILE"
+        cat "$COMMAND_FILE"
+        echo "END CONTENT OF COMMAND FILE"
+    fi
+
+    ssh -o LogLevel=error -t stackstorm.ops.${ENVIRONMENT}.az < "$COMMAND_FILE" 2>/dev/null
+
+    rm -f "$COMMAND_FILE"
+
+}
