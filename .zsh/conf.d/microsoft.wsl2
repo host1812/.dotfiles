@@ -1,0 +1,43 @@
+# Java
+# export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
+
+# Maven
+# export M3_HOME=$(dirname `which mvn`)/$(dirname $(readlink `which mvn`))/..
+# export PATH=$PATH:${M3_HOME}/bin
+export PATH=$PATH:${HOME}/bin/apache-maven-3.8.6/bin
+
+# MySQL
+# export PATH=$PATH:/usr/local/mysql/bin
+
+# Node.js
+# export PATH=$PATH:~/glint/ui/node_modules/.bin
+# export NODE_ENV=local
+
+# seach history with up/down keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+# bindkey "^[[A" up-line-or-beginning-search # Up
+# bindkey "^[[B" down-line-or-beginning-search # Down
+# bindkey '\e[A' history-beginning-search-backward
+# bindkey '\e[B' history-beginning-search-forward
+# bindkey "$terminfo[kcuu1]" history-substring-search-up
+# bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
+
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
+# eval $(/usr/bin/keychain --eval --agents ssh /home/afedorenchik/.ssh/afedoren_at_linkedin.com_ssh_key)
+source $HOME/.keychain/$(hostname)-sh
+
+# Created by `pipx` on 2022-08-03 23:38:25
+export PATH="$PATH:/home/afedorenchik/bin:/home/afedorenchik/.local/bin"
+
+# mtu workaround for wsl2
+sudo ip link set dev eth0 mtu 1160
