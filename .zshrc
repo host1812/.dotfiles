@@ -1,18 +1,32 @@
 # start tmux as soon as possible
 TERM=tmux-256color
 COLORTERM=truecolor
-[[ -z "$TMUX" ]] && exec $(tmux attach || tmux)
+# [[ -z "$TMUX" ]] && exec $(/usr/bin/tmux attach || /usr/bin/tmux)
+# if [ -z "$TMUX" ]
+# then
+    # tmux attach -t TMUX || tmux new -s TMUX
+    # exec $(tmux attach || tmux)
+# fi
+if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi
 
 # brew location
 
-BREW_PREFIX=$(brew --prefix)
+ZSH_PLUGINS_PREFIX=~/.zsh/plugins
 
 # aliases
 source "${HOME}/.zsh/aliases/base"
 # load linkedin aliases only on linkedin laptop
 if type mint > /dev/null; then
     source "${HOME}/.zsh/aliases/linkedin"
-    source "${HOME}/.zsh/conf.d/linkedin"
+    source "${HOME}/.zsh/conf.d/linkedin.macos"
+fi
+
+# load microsoft aliases
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
+    source "${HOME}/.zsh/aliases/microsoft"
+    source "${HOME}/.zsh/conf.d/microsoft.wsl2"
+else
+    source "${HOME}/.zsh/conf.d/personal.macos"
 fi
 
 # history settings
@@ -26,14 +40,6 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 # ignore history duplicates when searching
 setopt HIST_FIND_NO_DUPS
-
-# seach history with up/down keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
 
 # moving back/forward by words
 autoload -U select-word-style
@@ -66,16 +72,18 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# enable zsh-autosuggestions (brew)
-source "${BREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# enable partial search
+source "${ZSH_PLUGINS_PREFIX}/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# enable zsh-autosuggestions
+source "${ZSH_PLUGINS_PREFIX}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969,underline"
 
-# enable zsh-syntax-highlighting (brew)
-source "${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# enable zsh-syntax-highlighting
+source "${ZSH_PLUGINS_PREFIX}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # kubernetes autocomplitionss
 source <(kubectl completion zsh)
 
 # activate starship (brew)
 eval "$(starship init zsh)"
-
