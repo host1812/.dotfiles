@@ -1,15 +1,5 @@
 # start tmux as soon as possible
-TERM=tmux-256color
-COLORTERM=truecolor
-# [[ -z "$TMUX" ]] && exec $(/usr/bin/tmux attach || /usr/bin/tmux)
-# if [ -z "$TMUX" ]
-# then
-    # tmux attach -t TMUX || tmux new -s TMUX
-    # exec $(tmux attach || tmux)
-# fi
 if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi
-
-# brew location
 
 ZSH_PLUGINS_PREFIX=~/.zsh/plugins
 
@@ -23,6 +13,8 @@ fi
 
 # load microsoft aliases
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
+    TERM=tmux-256color
+    COLORTERM=truecolor
     source "${HOME}/.zsh/aliases/microsoft"
     source "${HOME}/.zsh/conf.d/microsoft.wsl2"
 else
