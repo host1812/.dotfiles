@@ -1,6 +1,8 @@
 # start tmux as soon as possible
 TERM=tmux-256color
 COLORTERM=truecolor
+GPG_TTY=$(tty)
+eval $(keychain --eval --agents gpg afedorenchik)
 # [[ -z "$TMUX" ]] && exec $(/usr/bin/tmux attach || /usr/bin/tmux)
 # if [ -z "$TMUX" ]
 # then
