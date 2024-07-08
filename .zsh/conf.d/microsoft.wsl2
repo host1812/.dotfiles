@@ -35,7 +35,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
 # eval $(/usr/bin/keychain --eval --agents ssh /home/afedorenchik/.ssh/afedoren_at_linkedin.com_ssh_key)
-source $HOME/.keychain/$(hostname)-sh
+# source $HOME/.keychain/$(hostname)-sh
 
 # Created by `pipx` on 2022-08-03 23:38:25
 export PATH="$PATH:/home/afedorenchik/bin:/home/afedorenchik/.local/bin"

@@ -5,7 +5,7 @@ GPG_TTY=$(tty)
 # start tmux as soon as possible
 if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi
 
-eval $(keychain --eval --agents gpg afedorenchik)
+# eval $(keychain --eval --agents gpg afedorenchik)
 
 ZSH_PLUGINS_PREFIX=~/.zsh/plugins
 
