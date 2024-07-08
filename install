@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+echo "Checking operating system..."
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
+    echo "Linux on WSL2 detected"
+
+    echo "Check sudoers config..."
+    CURRENT_USER=$USER
+    if sudo ls /etc/sudoers.d/${CURRENT_USER} 2>/dev/null; then
+        echo "Sudoers config already present for this user"
+    else
+        echo "Sudoers config not found, creating one... (using sudo)"
+        sudo echo "${CURRENT_USER} ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/${CURRENT_USER} > /dev/null
+    fi
+fi
+
 echo "Creating symlinks..."
 if [ -d ~/.zsh ] || [ -f ~/.zshrc ] || [ -f ~/.zshenv ]; then
     read -r -p "Another installation detected. Reinstall? [y|N] " response
