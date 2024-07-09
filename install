@@ -15,6 +15,7 @@ if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
 
     echo "Setup Git Credentials Manager"
     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+    git config --global credential.useHttpPath true
 
     sudo apt update > /dev/null
     echo "Install zsh"
@@ -45,6 +46,8 @@ if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
 fi
 
 echo "Creating symlinks..."
+mkdir ~/.config
+mkdir ~/.config/kitty
 if [ -d ~/.zsh ] || [ -f ~/.zshrc ] || [ -f ~/.zshenv ]; then
     read -r -p "Another installation detected. Reinstall? [y|N] " response
     if [[ $response =~ (yes|y|Y) ]]; then
