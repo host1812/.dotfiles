@@ -16,6 +16,8 @@ if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
     echo "Setup Git Credentials Manager"
     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
     git config --global credential.useHttpPath true
+    git config --global core.editor "vim"
+    git config --global --add --bool push.autoSetupRemote true
 
     sudo apt update > /dev/null
     echo "Install zsh"
