@@ -12,3 +12,5 @@ alias a='eval $(/usr/bin/keychain --eval --agents ssh /home/afedorenchik/.ssh/af
 alias ac="ansible_command"
 alias acb="~/glint/temp/ansible-playbook"
 alias aci="~/glint/temp/ansible-inventory"
+alias trs="echo testtrs01.onmicrosoft.com"
+alias prd="echo prdtrs01.prod.outlook.com"

@@ -85,3 +85,6 @@ source <(kubectl completion zsh)
 
 # activate starship (brew)
 eval "$(starship init zsh)"
+
+# Added by Agency Claude Code installer
+export PATH="/home/afedorenchik/.claude-cli/currentVersion:$PATH"
