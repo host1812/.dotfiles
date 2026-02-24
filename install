@@ -82,3 +82,6 @@ fi
 echo "installing zsh plugins..."
 git submodule update --init --recursive
 git submodule update --recursive --remote
+
+echo "installing wslview for opening links in the default Windows browser from WSL..."
+sudo apt install wslu

@@ -88,3 +88,6 @@ eval "$(starship init zsh)"
 
 # Added by Agency Claude Code installer
 export PATH="/home/afedorenchik/.claude-cli/currentVersion:$PATH"
+
+# to allow opening links in the default Windows browser from WSL
+export BROWSER=wslview
