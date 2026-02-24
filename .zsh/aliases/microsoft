@@ -7,7 +7,7 @@ alias aws-glint-deactivate="unset AWS_PROFILE && rm ~/.aws/config 2>/dev/null"
 alias az-glint-prod="az account set --subscription a997adba-cb33-4c62-966d-723795a7e5dc && export AZ_GLINT_PROFILE=prod"
 alias az-glint-dev="az account set --subscription d453c562-8ac3-44e7-bebe-9c0e51c8f3a6 && export AZ_GLINT_PROFILE=dev"
 alias az-glint-deactivate="unset AZ_GLINT_PROFILE"
-alias ls="exa"
+alias ls="eza"
 alias a='eval $(/usr/bin/keychain --eval --agents ssh /home/afedorenchik/.ssh/afedoren_at_linkedin.com_ssh_key)'
 alias ac="ansible_command"
 alias acb="~/glint/temp/ansible-playbook"

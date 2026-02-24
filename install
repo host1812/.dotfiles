@@ -41,8 +41,8 @@ if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
     mkdir ~/bin
     mv ./kubectl ~/bin
 
-    echo "Installing exa"
-    sudo apt install exa
+    echo "Installing eza"
+    sudo apt install eza
 
     echo "Installing az cli..."
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
