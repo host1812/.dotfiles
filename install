@@ -84,4 +84,11 @@ git submodule update --init --recursive
 git submodule update --recursive --remote
 
 echo "installing wslview for opening links in the default Windows browser from WSL..."
-sudo apt install wslu
+sudo apt install -y wslu
+
+echo "installing pre-commit hook for git..."
+sudo apt install -y pre-commit
+
+echo "Set timezone to est"
+sudo timedatectl set-timezone America/New_York
+sudo dpkg-reconfigure tzdata
