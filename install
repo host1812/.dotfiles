@@ -87,7 +87,9 @@ echo "installing wslview for opening links in the default Windows browser from W
 sudo apt install -y wslu
 
 echo "installing pre-commit hook for git..."
-sudo apt install -y pre-commit
+sudo apt install pipx -y
+pipx ensurepath
+pipx install pre-commit
 
 echo "Set timezone to est"
 sudo timedatectl set-timezone America/New_York
