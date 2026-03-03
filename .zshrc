@@ -87,7 +87,7 @@ source <(kubectl completion zsh)
 eval "$(starship init zsh)"
 
 # Added by Agency Claude Code installer
-export PATH="/home/afedorenchik/.claude-cli/currentVersion:$PATH"
+export PATH="/home/afedorenchik/.claude-cli/currentVersion:$HOME/go/bin:$PATH"
 
 # to allow opening links in the default Windows browser from WSL
 export BROWSER=wslview
